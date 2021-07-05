@@ -15,7 +15,6 @@ public class Config {
 
 	static String name = "config.yml";
 	public static boolean debug;
-	public static boolean update;
 	public static boolean nan;
 	public static boolean m_players;
 	public static boolean m_thiefs;
@@ -82,8 +81,8 @@ public class Config {
 				plugin.getLogger().warning("I/O error while saving the configuration. Was the file in use?");
 			}
 		}
+
 		debug = config.getBoolean(ConfigValue.DEBUG.getPath());
-		update = config.getBoolean(ConfigValue.UPDATE.getPath());
 		nan = config.getBoolean(ConfigValue.NAN_PATCH.getPath());
 		m_players = config.getBoolean(ConfigValue.M_PLAYERS.getPath());
 		m_thiefs = config.getBoolean(ConfigValue.M_THIEFS.getPath());
@@ -99,7 +98,8 @@ public class Config {
 		quests = config.getBoolean(ConfigValue.QUESTS.getPath());
 		ncp = config.getBoolean(ConfigValue.NCP.getPath());
 		meta_delay=config.getLong(ConfigValue.META_DELAY.getPath());
-                javascriptengine=config.getString(ConfigValue.JAVASCRIPTENGINE.getPath());
+		javascriptengine=config.getString(ConfigValue.JAVASCRIPTENGINE.getPath());
+
 	}
 
 }

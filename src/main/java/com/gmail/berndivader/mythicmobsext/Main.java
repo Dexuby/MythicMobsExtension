@@ -66,34 +66,6 @@ public class Main extends JavaPlugin {
 		pluginmanager = plugin.getServer().getPluginManager();
 		logger = plugin.getLogger();
 
-		if (Config.update) {
-			new BukkitRunnable() {
-				@Override
-				public void run() {
-
-					String version = "";
-					PluginDescriptionFile pdf = getDescription();
-					try {
-						URL url = new URL(
-								"https://raw.githubusercontent.com/BerndiVader/MythicMobsExtension/master/version.txt");
-						try (InputStream in = url.openStream();
-								BufferedReader br = new BufferedReader(new InputStreamReader(in))) {
-							version = br.readLine();
-						}
-					} catch (MalformedURLException e) {
-						e.printStackTrace();
-					} catch (IOException e) {
-						logger.warning("Could not read version file!");
-					}
-					if (!pdf.getVersion().endsWith("SNAPSHOT") && !pdf.getVersion().equals(version)) {
-						logger.info("MythicMobsExtension v" + version + " is available, get it here:");
-						logger.info("https://www.spigotmc.org/resources/mythicmobsextension.51884/");
-					} else {
-						logger.info("Plugin is up-to-date!");
-					}
-				}
-			}.runTaskAsynchronously(this);
-		}
 		if (pluginmanager.isPluginEnabled("MythicMobs")) {
 			NMSUtils.initialize();
 			new Utils();
